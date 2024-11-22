@@ -7,7 +7,7 @@ import pymongo
 
 # Configuration
 TOKEN = "7607282879:AAGeVGparkLY36IPF2tOVBDkLtRb5J02LD8"  # Replace with your Telegram bot token
-ADMIN_IDS = {5757417868}  # Replace with your actual admin user ID(s)
+ADMIN_IDS = {68686890}  # Replace with your actual admin user ID(s)
 
 # MongoDB setup
 mongo_client = pymongo.MongoClient("mongodb+srv://MoinOwner:MoinOwner@moin.gouzp.mongodb.net/?retryWrites=true&w=majority&appName=Moin")
@@ -50,7 +50,7 @@ async def approve_user(update: Update, context: ContextTypes.DEFAULT_TYPE):
     plan_value = int(context.args[1])  # Expecting 100 or 200
     days = int(context.args[2])
     
-    #if update.effective_user.id not in ADMIN_IDS:
+    if update.effective_user.id not in ADMIN_IDS:
         await update.message.reply_text("You are not authorized to approve users.")
         return
 
