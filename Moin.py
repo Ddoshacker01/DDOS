@@ -50,7 +50,7 @@ async def approve_user(update: Update, context: ContextTypes.DEFAULT_TYPE):
     plan_value = int(context.args[1])  # Expecting 100 or 200
     days = int(context.args[2])
     
-    if update.effective_user.id not in ADMIN_IDS:
+    #if update.effective_user.id not in ADMIN_IDS:
         await update.message.reply_text("You are not authorized to approve users.")
         return
 
